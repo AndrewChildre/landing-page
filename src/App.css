@@ -6,38 +6,35 @@
 
 .full-container{
   display: flex;
- justify-content: space-around;
-  align-items: center;
-/* background-color: darkorchid; */
-height: 70vh;
-
+ justify-content:center;
+  /* align-items: center; */
+background-color: darkorchid;
+height: 100vh;
 }
 
-.left-col {
-  flex: 50%;
- 
 
-  
-   
+
+
+ .left-col {
+   display: flex;
+width: 50%;
+align-items: center;
+justify-content:center;
 }
-
- .right-col{
-/* margin: 50px; */
- 
- 
- }
+.right-col{
+   display: flex;
+width: 50%;
+align-items: center;
+justify-content:center;
+}
   
-.form {
+/* .form {
   display: flex;
   flex-direction: column;
    justify-content: space-around;
   align-items: center;
- 
-/* padding: 20px; */
-/* margin: 20px; */
 
-
-}
+} */
 .item {
   padding: 20px;
 
