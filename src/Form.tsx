@@ -77,9 +77,12 @@ const Form = () => {
 				</form>
 			</div>
                             <div className='right-col'>
-			<h1 style={{ background: 'green' }} >
+                                <div className='picture'>
+                                    <img src="https://images.pexels.com/photos/4855615/pexels-photo-4855615.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
+                                </div>
+			{/* <h1 style={{ background: 'green' }} >
 				Some other shit
-			</h1>
+			</h1> */}
             </div>
      
 		</div>
