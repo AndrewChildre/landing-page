@@ -11,13 +11,13 @@ const Form = () => {
 
 	return (
 		<div className='full-container'>
-			<div  className='left-col' style={{ background: 'red' }}>
+			<section className='left-col' style={{ background: 'red' }}>
+				<h1>Enter to not win a <br /> ferrari</h1>
 				<form
 					onSubmit={handleSubmit((data) => {
 						console.log(data);
 					})}
 					className='form'>
-
 					<div className='item username'>
 						<label htmlFor='username'>Username:</label>
 						<br />
@@ -26,7 +26,8 @@ const Form = () => {
 							id='username'
 							type='text'
 						/>
-						{errors.username && <p>{errors.username.message}</p>}
+
+					{errors.username && <p>{errors.username.message}</p>}
 					</div>
 
 					<div className='item email'>
@@ -55,7 +56,7 @@ const Form = () => {
 					</div>
 
 					<div className='item password2'>
-						<label htmlFor='password2'>Confirm Password:</label>
+						<label htmlFor='password2'>Confirm:</label>
 						<br />
 						<input
 							type='password'
@@ -68,23 +69,25 @@ const Form = () => {
 									},
 								},
 							})}
-						/>
+						/> <br />
 						{errors.password2 && errors.password2.message}
 					</div>
 					<div className='item btn'>
 						<button>Submit</button>
 					</div>
 				</form>
-			</div>
-                            <div className='right-col'>
-                                <div className='picture'>
-                                    <img src="https://images.pexels.com/photos/4855615/pexels-photo-4855615.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-                                </div>
-			{/* <h1 style={{ background: 'green' }} >
-				Some other shit
-			</h1> */}
-            </div>
-     
+			</section>
+
+			<section className='right-col'>
+				<div className='picture'>
+
+                    <p>Hello World</p>
+					<img
+						src='https://images.pexels.com/photos/4141236/pexels-photo-4141236.png?auto=compress&cs=tinysrgb&dpr=1&w=500'
+						alt=''
+					/>
+				</div>
+			</section>
 		</div>
 	);
 };
