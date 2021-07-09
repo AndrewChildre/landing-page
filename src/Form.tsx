@@ -1,21 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-
+import Success from './Success';
 const Form = () => {
+
+    const [formStep, setFormStep] = useState(0);
+    const completeFormStep = ()=>{
+        setFormStep(cur => cur +1)
+    }
 	const {
 		register,
 		handleSubmit,
 		getValues,
-		formState: { errors },
-	} = useForm();
+		formState: { errors, isValid },
+	} = useForm({mode: 'all'});
 
 	return (
 		<div className='full-container'>
-			<section className='left-col' style={{ background: 'red' }}>
+			{formStep === 0 && (<section className='left-col' style={{ background: 'red' }}>
 				<h1>Enter to not win a <br /> ferrari</h1>
 				<form
 					onSubmit={handleSubmit((data) => {
 						console.log(data);
+                        
 					})}
 					className='form'>
 					<div className='item username'>
@@ -34,7 +40,10 @@ const Form = () => {
 						<label htmlFor='email'>Email:</label>
 						<br />
 						<input
-							{...register('email', { required: 'Email is Required' })}
+							{...register('email', { pattern: {
+            value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+            message: 'Please enter a valid email',
+        }, required: 'Email is Required' })}
 							id='email'
 							type='email'
 						/>
@@ -73,12 +82,12 @@ const Form = () => {
 						{errors.password2 && errors.password2.message}
 					</div>
 					<div className='item btn'>
-						<button >Submit</button>
+						<button disabled={!isValid} type='button' onClick={completeFormStep} >Submit</button>
 					</div>
 				</form>
-			</section>
+                </section>)}
 
-			<section className='right-col'>
+			{formStep === 0 && (<section className='right-col'>
 				<div className='picture'>
 
                     <p>Hello World</p>
@@ -87,8 +96,10 @@ const Form = () => {
 						alt=''
 					/>
 				</div>
-			</section>
-		</div>
+                </section>)}
+
+                <div>{ formStep === 1 && ( <Success />)}</div>
+            </div>
 	);
 };
 
