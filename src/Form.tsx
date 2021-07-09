@@ -73,7 +73,7 @@ const Form = () => {
 						{errors.password2 && errors.password2.message}
 					</div>
 					<div className='item btn'>
-						<button>Submit</button>
+						<button >Submit</button>
 					</div>
 				</form>
 			</section>
