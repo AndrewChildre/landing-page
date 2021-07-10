@@ -18,7 +18,7 @@ const Form = () => {
 
 	return (
 		<div className='full-container'>
-			{formStep === 0 && (<section className='left-col' style={{ background: 'red' }}>
+			{formStep === 0 && (<section className='left-col' style={{ background: 'rgb(255,40,0)' }}>
 				<h1>Enter to not win a <br /> ferrari</h1>
 				<form
 					onSubmit={handleSubmit((data) => {
@@ -107,7 +107,7 @@ const Form = () => {
                     style={{
                         overlay: {
                           
-                           backgroundColor: 'rgb(255,0,0)'
+                           backgroundColor: 'rgb(255,40,0)'
                         },
        content : {
     top                   : '50%',
@@ -117,7 +117,7 @@ const Form = () => {
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
     backgroundColor: 'rgba(0,0,0, 0.95)',
-    border: '10px ridge yellow',
+    border: '8px ridge yellow',
     borderRadius: '50px'
 
     
