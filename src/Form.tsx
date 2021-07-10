@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Success from './Success';
+import Modal from 'react-modal';
 const Form = () => {
 
     const [formStep, setFormStep] = useState(0);
     const completeFormStep = ()=>{
         setFormStep(cur => cur +1)
     }
+    const [isModalOpen, setIsModalOpen] = useState(false)
 	const {
 		register,
 		handleSubmit,
@@ -82,7 +84,10 @@ const Form = () => {
 						{errors.password2 && errors.password2.message}
 					</div>
 					<div className='item btn'>
-						<button disabled={!isValid} type='button' onClick={completeFormStep} >Submit</button>
+						<button disabled={!isValid} type='button' onClick={() =>{completeFormStep(); 
+                        setIsModalOpen(true);
+                            
+                        }} >Submit</button>
 					</div>
 				</form>
                 </section>)}
@@ -98,7 +103,30 @@ const Form = () => {
 				</div>
                 </section>)}
 
-                <div>{ formStep === 1 && ( <Success />)}</div>
+                {formStep === 1 && (<div id='modal'><Modal 
+                    style={{
+                        overlay: {
+                          
+                           backgroundColor: 'rgb(255,0,0)'
+                        },
+       content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)',
+    backgroundColor: 'rgba(0,0,0, 0.95)',
+    border: '10px ridge yellow',
+    borderRadius: '50px'
+
+    
+  }         
+      
+                    }}
+                isOpen={isModalOpen}>
+                    <Success />
+                    </Modal> </div>)}
             </div>
 	);
 };

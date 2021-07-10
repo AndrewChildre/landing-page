@@ -3,7 +3,7 @@ import React from 'react';
 const Success = () => {
     return (
         <div>
-<h1>Success Page</h1>
+           <h1>success</h1> 
         </div>
     );
 };
