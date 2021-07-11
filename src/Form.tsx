@@ -13,18 +13,20 @@ const Form = () => {
 		register,
 		handleSubmit,
 		getValues,
-		formState: { errors, isValid },
+		formState: { errors, isValid }, reset,
 	} = useForm({mode: 'all'});
-
+    const onSubmit = () =>{
+         reset( {}, {
+            keepValues: false,
+        })
+    }
+    
 	return (
 		<div className='full-container'>
 			{formStep === 0 && (<section className='left-col' style={{ background: 'rgb(255,40,0)' }}>
-				<h1>Enter to not win a <br /> ferrari</h1>
+				<h1>Enter to not win a <br /> Ferrari</h1>
 				<form
-					onSubmit={handleSubmit((data) => {
-						console.log(data);
-                        
-					})}
+					onSubmit={handleSubmit(onSubmit)}
 					className='form'>
 					<div className='item username'>
 						<label htmlFor='username'>Username:</label>
@@ -84,8 +86,9 @@ const Form = () => {
 						{errors.password2 && errors.password2.message}
 					</div>
 					<div className='item btn'>
-						<button disabled={!isValid} type='button' onClick={() =>{completeFormStep(); 
+						<button disabled={!isValid} type='submit' onClick={() =>{completeFormStep(); 
                         setIsModalOpen(true);
+                        onSubmit()
                             
                         }} >Submit</button>
 					</div>
@@ -126,6 +129,7 @@ const Form = () => {
                     }}
                 isOpen={isModalOpen}>
                     <Success />
+                    <button onClick={()=>{setFormStep(0)}}>close</button>
                     </Modal> </div>)}
             </div>
 	);
