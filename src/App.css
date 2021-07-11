@@ -38,7 +38,7 @@ button {
 
 	text-align: center;
 	margin-bottom: 20px;
-	font-size: 30px;
+	font-size: 20px;
 }
 
 p {
@@ -80,9 +80,13 @@ img {
 	.right-col {
 		width: 100vw;
 	}
-	#modal {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
+}
+.modal-btn {
+	background-color: black;
+	color: yellow;
+	margin-left: 40%;
+}
+.disclaimer {
+	color: grey;
+	font-size: 7px;
 }
