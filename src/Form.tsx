@@ -142,6 +142,7 @@ const Form = () => {
 								backgroundColor: 'rgba(0,0,0, 0.95)',
 								border: '8px ridge yellow',
 								borderRadius: '50px',
+								overflow: 'hidden'
 							},
 						}}
 						isOpen={isModalOpen}>
